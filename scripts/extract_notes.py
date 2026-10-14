@@ -110,7 +110,7 @@ def diff_against_reviewed(draft: list[dict]) -> int:
     if not REVIEWED_JSON.exists():
         print(f"No reviewed file at {REVIEWED_JSON.relative_to(ROOT)} yet.")
         return 0
-    reviewed = {n["note_id"]: n for n in json.loads(REVIEWED_JSON.read_text())["notes"]}
+    reviewed = {n["note_id"]: n for n in json.loads(REVIEWED_JSON.read_text(encoding="utf-8"))["notes"]}
     changes = 0
     for note in draft:
         old = reviewed.get(note["note_id"], {})
@@ -128,7 +128,7 @@ def main() -> None:
     args = parser.parse_args()
 
     draft, usage = extract(read_notes())
-    DRAFT_JSON.write_text(json.dumps({"model": MODEL, "notes": draft}, indent=2) + "\n")
+    DRAFT_JSON.write_text(json.dumps({"model": MODEL, "notes": draft}, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(draft)} notes to {DRAFT_JSON.relative_to(ROOT)}")
     print(f"Token usage: {usage}")
     if args.diff:

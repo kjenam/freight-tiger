@@ -184,7 +184,12 @@ def main() -> int:
 
     text = "\n".join(report) + "\n"
     args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(text)
+    args.report.write_text(text, encoding="utf-8")
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     print(text, end="")
     print(f"Report written to {args.report}")
     return 0 if audit_ok else 1

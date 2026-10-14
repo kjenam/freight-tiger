@@ -30,12 +30,22 @@ KEY_COLS = ["route", "week_of"]
 FREE_TEXT_COLS = ["reason"]
 
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
 def run_pipeline(run_no: int, snapshot_dir: Path, main_args: list[str]) -> tuple[Path, dict]:
     result = subprocess.run(
         [sys.executable, "-m", "freight_watch.main", *main_args],
         cwd=ROOT,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
     )
     if result.returncode != 0:
         sys.stderr.write(result.stdout + result.stderr)
@@ -44,7 +54,7 @@ def run_pipeline(run_no: int, snapshot_dir: Path, main_args: list[str]) -> tuple
         raise SystemExit(f"Run {run_no} did not write {FLAGS_PATH}")
     snapshot = snapshot_dir / f"flags_run{run_no}.csv"
     shutil.copy(FLAGS_PATH, snapshot)
-    run_log = json.loads(RUN_LOG_PATH.read_text()) if RUN_LOG_PATH.exists() else {}
+    run_log = json.loads(RUN_LOG_PATH.read_text(encoding="utf-8")) if RUN_LOG_PATH.exists() else {}
     return snapshot, run_log
 
 
@@ -143,7 +153,7 @@ def main() -> int:
 
     text = "\n".join(report) + "\n"
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_PATH.write_text(text)
+    REPORT_PATH.write_text(text, encoding="utf-8")
     print(text, end="")
     print(f"Report written to {REPORT_PATH.relative_to(ROOT)}")
     return 0 if strict_ok else 1

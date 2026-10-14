@@ -227,7 +227,7 @@ def run(use_llm: bool = True, use_retrieval: bool = True) -> dict[str, Any]:
         "outputs": {"flags_csv": str(FLAGS_CSV.relative_to(config.ROOT))},
         "rows": details,
     }
-    RUN_LOG_JSON.write_text(json.dumps(log, indent=2) + "\n")
+    RUN_LOG_JSON.write_text(json.dumps(log, indent=2) + "\n", encoding="utf-8")
     return log
 
 

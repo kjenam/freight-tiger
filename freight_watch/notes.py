@@ -51,7 +51,7 @@ def load_notes(
     if raw["note_id"].duplicated().any():
         raise ValueError("notes file has duplicate note_id values")
 
-    structured = {n["note_id"]: n for n in json.loads(Path(structured_path).read_text())["notes"]}
+    structured = {n["note_id"]: n for n in json.loads(Path(structured_path).read_text(encoding="utf-8"))["notes"]}
     csv_ids, json_ids = set(raw["note_id"]), set(structured)
     if csv_ids != json_ids:
         raise ValueError(
