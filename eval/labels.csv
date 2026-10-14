@@ -1,0 +1,21 @@
+route,week_of,expected_flagged,expected_note_id,rationale
+Delhi-Jaipur,2024-11-11,Yes,,Sharp spike with no note for this route or date; sample row says Yes.
+Delhi-Jaipur,2024-11-18,Yes,,Second week of the same unexplained spike; still no note.
+Ahmedabad-Mumbai,2025-01-20,No (justified),N002,Festival-week surcharge note covers this exact route and week; sample row says N002.
+Ahmedabad-Mumbai,2025-01-27,Not flagged,,Week after the festival; cost back below its own average.
+Chennai-Bangalore,2025-02-24,No (justified),N001,Flooding from Feb 24 raised trip costs on this route.
+Chennai-Bangalore,2025-03-03,No (justified),N001,Flooding continued until Mar 8; this week is inside the window.
+Chennai-Bangalore,2025-03-10,Yes,,N001 ended Mar 8 (roads passable Mar 9) so the flood no longer explains a high cost.
+Chennai-Bangalore,2025-03-17,Yes,,N009 says the route is back to normal; it is not a reason for a rise.
+Chennai-Bangalore,2025-03-24,Not flagged,,Cost has dropped back below its own average.
+Mumbai-Delhi,2024-07-29,Not flagged,,N005 maintenance week; the note says costs were not affected and none moved.
+Mumbai-Delhi,2025-05-05,Not flagged,,Diesel rise week; cost up about 7% in line with N003's 5-7% so not abnormal.
+Mumbai-Delhi,2025-05-12,No (justified),N003,Rise above 10% while the nationwide diesel increase (N003) is in effect.
+Mumbai-Pune,2024-06-10,Not flagged,,Runs above its peer every week in 2024 as a normal pattern; not rising against itself.
+Mumbai-Pune,2024-09-16,Not flagged,,Ordinary 2024 week for this route.
+Mumbai-Pune,2025-09-15,Yes,,Slow creep well above peers; N006 (stable demand) is not a reason; sample row says Yes.
+Mumbai-Pune,2025-10-27,Yes,,Creep continues; N010 says tracking-mandate costs were absorbed without a rate change.
+Mumbai-Pune,2025-12-22,Yes,,End of the creep; nearly 40% above peers with no note.
+Delhi-Jaipur,2024-03-11,Not flagged,,N004 toll plaza does not touch routes in this dataset and cost is flat.
+Delhi-Jaipur,2024-05-20,Not flagged,,N007 road improvement; cost slightly down.
+Kolkata-Bhubaneswar,2025-06-09,Not flagged,,N008 says freight movement normal; cost flat.

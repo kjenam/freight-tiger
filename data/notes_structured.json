@@ -1,0 +1,86 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "reviewed": "Manually reviewed against data/context_notes.csv. A null end means the note gives no end date; the loader applies the default window from config.",
+  "notes": [
+    {
+      "note_id": "N001",
+      "applies_to": "Chennai-Bangalore",
+      "start": "2025-02-24",
+      "end": "2025-03-08",
+      "raises_cost": true,
+      "review": "Flooding Feb 24 to Mar 8 with higher trip costs; roads passable again by Mar 9."
+    },
+    {
+      "note_id": "N002",
+      "applies_to": "Ahmedabad-Mumbai",
+      "start": "2025-01-20",
+      "end": "2025-01-26",
+      "raises_cost": true,
+      "review": "Temporary surcharge during a single festival week starting Mon 2025-01-20."
+    },
+    {
+      "note_id": "N003",
+      "applies_to": "All Routes",
+      "start": "2025-05-05",
+      "end": null,
+      "raises_cost": true,
+      "review": "Nationwide diesel rise of roughly 5-7%, no end date given, so the default window applies."
+    },
+    {
+      "note_id": "N004",
+      "applies_to": "All Routes",
+      "start": "2024-03-11",
+      "end": null,
+      "raises_cost": false,
+      "review": "New toll plaza, but the note says the affected routes are not in this dataset."
+    },
+    {
+      "note_id": "N005",
+      "applies_to": "Mumbai-Delhi",
+      "start": "2024-07-29",
+      "end": "2024-08-04",
+      "raises_cost": false,
+      "review": "About a week of maintenance delays; costs were not significantly affected."
+    },
+    {
+      "note_id": "N006",
+      "applies_to": "All Routes",
+      "start": "2025-09-22",
+      "end": null,
+      "raises_cost": false,
+      "review": "Industry report of stable demand and no disruptions; informational only."
+    },
+    {
+      "note_id": "N007",
+      "applies_to": "Delhi-Jaipur",
+      "start": "2024-05-20",
+      "end": null,
+      "raises_cost": false,
+      "review": "Improved road conditions after resurfacing; would lower costs, not raise them."
+    },
+    {
+      "note_id": "N008",
+      "applies_to": "Kolkata-Bhubaneswar",
+      "start": "2025-06-09",
+      "end": null,
+      "raises_cost": false,
+      "review": "No significant disruptions; freight movement normal."
+    },
+    {
+      "note_id": "N009",
+      "applies_to": "Chennai-Bangalore",
+      "start": "2025-03-17",
+      "end": null,
+      "raises_cost": false,
+      "review": "Route back to normal after flood repairs; marks the end of the N001 disruption."
+    },
+    {
+      "note_id": "N010",
+      "applies_to": "All Routes",
+      "start": "2025-10-27",
+      "end": null,
+      "raises_cost": false,
+      "review": "Tracking mandate compliance costs absorbed by transporters without a rate change."
+    }
+  ]
+}
