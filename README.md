@@ -76,7 +76,7 @@ flowchart LR
 **Weekly cost per tonne-km** for each (route, week):
 
 $$
-\text{cost}_{r,w} = \frac{\sum \text{freight\_cost\_inr}}{\sum (\text{quantity\_tonnes} \times \text{distance\_km})}
+\text{cost}_{r,w} = \frac{\sum \text{freight cost (INR)}}{\sum \left(\text{tonnes} \times \text{km}\right)}
 $$
 
 This is a pooled ratio, not an average of per-shipment ratios. It reproduces the sample values exactly: 4.17, 3.29 and 3.98.
