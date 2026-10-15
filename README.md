@@ -75,17 +75,17 @@ flowchart LR
 
 **Weekly cost per tonne-km** for each (route, week):
 
-\[
+$$
 \text{cost}_{r,w} = \frac{\sum \text{freight\_cost\_inr}}{\sum (\text{quantity\_tonnes} \times \text{distance\_km})}
-\]
+$$
 
 This is a pooled ratio, not an average of per-shipment ratios. It reproduces the sample values exactly: 4.17, 3.29 and 3.98.
 
 **vs own history.** This is the mean of the route's weekly cost over up to 8 weeks strictly before the current week, with no look-ahead.
 
-\[
+$$
 \text{own\%} = \frac{\text{cost}_{r,w}}{\text{mean}(\text{cost}_{r,w-8..w-1})} - 1
-\]
+$$
 
 - **Weeks 2 to 8 of 2024 have fewer than 8 prior weeks.** They use all available prior weeks (1 to 7), with no padding or extrapolation.
 - **Week 1 (2024-01-01) has no history**, so `vs_own_history` is undefined and the week is never a candidate for flagging.
@@ -94,9 +94,9 @@ This reproduces +35.5%, +29.5% and +9.2% from the sample.
 
 **vs similar routes.** This is the simple mean of the *other* same-`route_type` routes' weekly cost in the same week; the route itself is excluded.
 
-\[
+$$
 \text{peer\%} = \frac{\text{cost}_{r,w}}{\text{mean}_{r' \ne r,\ \text{type}(r') = \text{type}(r)}(\text{cost}_{r',w})} - 1
-\]
+$$
 
 This reproduces +21.0%, +22.5% and +23.6%. A shipment-pooled peer mean gives 21.8% instead of 22.5% for Ahmedabad-Mumbai, so the simple mean of route-week values is the one that matches the spec.
 

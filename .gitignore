@@ -6,3 +6,4 @@ __pycache__/
 outputs/*
 !outputs/.gitkeep
 tests/
+REad.md
